@@ -55,7 +55,7 @@ class PostResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')->sortable(),
-                TextColumn::make('title')->limit('50')->sortable(),
+                TextColumn::make('title')->limit('50')->sortable()->searchable(),
                 TextColumn::make('slug')->limit('50'),
                 BooleanColumn::make('is_published'),
                 SpatieMediaLibraryImageColumn::make('thumbnail')->collection('posts')
