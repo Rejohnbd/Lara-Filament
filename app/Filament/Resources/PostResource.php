@@ -7,6 +7,7 @@ use App\Filament\Resources\PostResource\RelationManagers;
 use App\Filament\Resources\PostResource\RelationManagers\TagsRelationManager;
 use App\Models\Post;
 use Closure;
+use Filament\Tables\Filters\Filter;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\RichEditor;
@@ -24,6 +25,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+use Filament\Tables\Filters\SelectFilter;
 
 class PostResource extends Resource
 {
@@ -61,7 +63,11 @@ class PostResource extends Resource
                 SpatieMediaLibraryImageColumn::make('thumbnail')->collection('posts')
             ])
             ->filters([
-                //
+                Filter::make('Published')
+                    ->query(fn (Builder $query): Builder => $query->where('is_published', true)),
+                Filter::make('Unpublished')
+                    ->query(fn (Builder $query): Builder => $query->where('is_published', false)),
+                SelectFilter::make('category')->relationship('category', 'name')
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
