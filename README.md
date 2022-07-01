@@ -12,4 +12,7 @@ Laravel is a web application framework 9 install with filament.php
 - php artisan make:model Tag -m
 - php artisan make:migration CreatePostTagTable
 - php artisan migrate
+- php artisan make:filament-resource CategoryResource
+- php artisan make:filament-resource PostResource
+- php artisan make:filament-resource TagResource
 
