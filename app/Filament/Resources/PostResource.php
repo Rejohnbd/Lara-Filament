@@ -30,6 +30,7 @@ use Filament\Tables\Filters\SelectFilter;
 class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
+    protected static ?string $recordTitleAttribute = 'title';
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
