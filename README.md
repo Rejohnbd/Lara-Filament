@@ -21,4 +21,5 @@ Laravel is a web application framework 9 install with filament.php
 - php artisan migrate
 - [documentation of spatie media library](https://spatie.be/docs/laravel-medialibrary/v10/basic-usage/preparing-your-model)
 - php artisan storage:link
+- php artisan make:filament-relation-manager CategoryResource posts title
 
